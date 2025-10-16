@@ -75,3 +75,15 @@ h1 {
 span.highlight {
   background-color: #ffffd0
 }
+
+/* Responsive timeline positioning */
+@media screen and (max-width: 1300px) {
+  .timeline {
+    position: static !important;
+    width: auto !important;
+    margin: 0px 2.5% !important;
+    z-index: auto !important;
+    right: auto !important;
+    top: auto !important;
+  }
+}
