@@ -6,12 +6,8 @@
  */
 
 document.addEventListener('DOMContentLoaded', async function () {
-  const [siteYaml, cveYaml] = await Promise.all([
-    fetch('data/site.yaml').then(r => r.text()),
-    fetch('data/cve.yaml').then(r => r.text()),
-  ]);
+  const siteYaml = await fetch('data/site.yaml').then(r => r.text());
   const data = jsyaml.load(siteYaml);
-  const cveData = jsyaml.load(cveYaml);
 
   renderProfile(data.profile);
   renderNews(data.news);
@@ -20,8 +16,13 @@ document.addEventListener('DOMContentLoaded', async function () {
   renderCTF(data.ctf);
   renderExperiences(data.experiences);
   renderServices(data.services);
-  renderCVEPreview(cveData.cves, 8);
   wireNewsToggle();
+
+  // cve.yaml is gitignored locally; load only when available
+  fetch('data/cve.yaml')
+    .then(r => { if (!r.ok) throw new Error('cve.yaml not found'); return r.text(); })
+    .then(yaml => renderCVEPreview(jsyaml.load(yaml).cves, 8))
+    .catch(() => {});
 });
 
 // ── Helpers ────────────────────────────────────────────────────────────────
