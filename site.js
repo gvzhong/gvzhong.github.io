@@ -1,0 +1,202 @@
+/**
+ * site.js — Data-driven page renderer.
+ * Loads data/site.yaml (and data/cve.yaml for the CVE preview) and
+ * populates every section of index.html.
+ * To add or edit content, only the YAML files need to change.
+ */
+
+document.addEventListener('DOMContentLoaded', async function () {
+  const [siteYaml, cveYaml] = await Promise.all([
+    fetch('data/site.yaml').then(r => r.text()),
+    fetch('data/cve.yaml').then(r => r.text()),
+  ]);
+  const data = jsyaml.load(siteYaml);
+  const cveData = jsyaml.load(cveYaml);
+
+  renderProfile(data.profile);
+  renderNews(data.news);
+  renderPublications(data.publications);
+  renderTalks(data.talks);
+  renderCTF(data.ctf);
+  renderExperiences(data.experiences);
+  renderServices(data.services);
+  renderCVEPreview(cveData.cves, 8);
+  wireNewsToggle();
+});
+
+// ── Helpers ────────────────────────────────────────────────────────────────
+
+function el(tag, attrs = {}, html = '') {
+  const e = document.createElement(tag);
+  Object.entries(attrs).forEach(([k, v]) => e.setAttribute(k, v));
+  if (html) e.innerHTML = html;
+  return e;
+}
+
+function entryLinks(links) {
+  return links
+    .map(l => `<a href="${l.url}">${l.label}</a>`)
+    .join(' / ');
+}
+
+// ── Section renderers ──────────────────────────────────────────────────────
+
+function renderProfile(profile) {
+  const img = document.querySelector('#profile-photo');
+  const bio = document.querySelector('#profile-bio');
+  const links = document.querySelector('#profile-links');
+  if (!img || !bio || !links) return;
+
+  img.src = profile.photo;
+  img.alt = profile.name;
+
+  bio.querySelector('h1').textContent = profile.name;
+  const bioContainer = bio.querySelector('.bio-paragraphs');
+  profile.bio.forEach(text => {
+    bioContainer.appendChild(el('p', {}, text));
+  });
+
+  profile.links.forEach((link, i) => {
+    if (i > 0) links.appendChild(document.createTextNode('\u00a0/\u00a0'));
+    const a = el('a', { href: link.url }, link.label);
+    if (link.onclick) a.setAttribute('onclick', link.onclick);
+    links.appendChild(a);
+  });
+}
+
+function renderNews(items) {
+  const visible = document.querySelector('#news-visible');
+  const collapsed = document.querySelector('#news-collapsed');
+  if (!visible || !collapsed) return;
+
+  items.forEach((item, i) => {
+    const node = el('div', { class: 'timeline-item' }, `
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">${item.date}</div>
+      <div class="timeline-text">${item.text}</div>
+    `);
+    (i === 0 ? visible : collapsed).appendChild(node);
+  });
+}
+
+function renderPublications(pubs) {
+  const container = document.querySelector('#publications-list');
+  if (!container) return;
+
+  pubs.forEach(pub => {
+    const authorsHtml = pub.authors ? `<br>${pub.authors}<br>` : '';
+    const linksHtml = entryLinks(pub.links);
+    const featuredHtml = pub.featured_by
+      ? `<span class="featured-by">
+           <span class="featured-by-bullet">&#9632;</span>
+           <span class="featured-by-text">Featured by: ${
+             pub.featured_by.map(f => `<a href="${f.url}" target="_blank" rel="noopener noreferrer">${f.label}</a>`).join(', ')
+           }, and other international outlets.</span>
+         </span>`
+      : '';
+    container.innerHTML += `
+      <table class="section-table">
+        <tr>
+          <td class="entry-cell">
+            <h3>${pub.title}</h3>
+            ${authorsHtml}
+            ${linksHtml}
+            <br>
+            <em>${pub.venue}</em>
+            ${featuredHtml}
+            <p></p>
+          </td>
+        </tr>
+      </table>`;
+  });
+}
+
+function renderTalks(talks) {
+  const container = document.querySelector('#talks-list');
+  if (!container) return;
+
+  talks.forEach(talk => {
+    const linksHtml = entryLinks(talk.links);
+    container.innerHTML += `
+      <table class="section-table">
+        <tr>
+          <td class="talk-cell">
+            <h3>${talk.title}</h3>
+            <br>
+            <em>${talk.venue}</em>
+            <br>
+            ${linksHtml}
+            <br>
+          </td>
+        </tr>
+      </table>`;
+  });
+}
+
+function renderCTF(ctf) {
+  const tbody = document.querySelector('#ctf-tbody');
+  if (!tbody) return;
+
+  ctf.entries.forEach(entry => {
+    tbody.innerHTML += `
+      <tr>
+        <td style="white-space:nowrap; padding-bottom:10px;">
+          Team member @ ${entry.team}<br>
+          <span style="font-weight:normal;">${entry.description}</span>
+        </td>
+        <td class="date-cell"><em>${entry.period}</em></td>
+      </tr>`;
+  });
+}
+
+function renderExperiences(experiences) {
+  const tbody = document.querySelector('#experiences-tbody');
+  if (!tbody) return;
+
+  experiences.forEach(exp => {
+    tbody.innerHTML += `
+      <tr>
+        <td>${exp.role}</td>
+        <td><em>${exp.period}</em> &emsp;</td>
+      </tr>`;
+  });
+}
+
+function renderServices(services) {
+  const tbody = document.querySelector('#services-tbody');
+  if (!tbody) return;
+
+  services.forEach(svc => {
+    const itemsHtml = svc.items.map(i => `<p style="margin:0;">${i}</p>`).join('');
+    tbody.innerHTML += `
+      <tr>
+        <td>${svc.role}</td>
+        <td>${itemsHtml}</td>
+      </tr>`;
+  });
+}
+
+function wireNewsToggle() {
+  var btn = document.getElementById('timeline-toggle');
+  var collapsed = document.getElementById('news-collapsed');
+  if (!btn || !collapsed) return;
+  btn.addEventListener('click', function () {
+    var expanded = collapsed.style.display !== 'none';
+    collapsed.style.display = expanded ? 'none' : 'block';
+    btn.textContent = expanded ? '⋯ more' : '⋯ less';
+  });
+}
+
+function renderCVEPreview(cves, limit) {
+  const table = document.querySelector('#cve-table');
+  if (!table) return;
+
+  cves.slice(0, limit).forEach(cve => {
+    table.innerHTML += `
+      <tr>
+        <td><a href="${cve.url}">${cve.id}</a></td>
+        <td><a href="${cve.product_url}">${cve.product}</a></td>
+        <td>${cve.type}</td>
+      </tr>`;
+  });
+}

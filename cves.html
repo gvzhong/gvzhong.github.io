@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JRNNF9TMHE"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-JRNNF9TMHE');
+  </script>
+  <link rel="icon" type="image/x-icon" href="images/favicon.jpeg">
+  <title>CVEs - Jiacheng(Gavin) Zhong</title>
+
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+  <meta name="author" content="Jiacheng Zhong" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" type="text/css" href="/style.css" />
+  <link rel="canonical" href="https://gvzhong.github.io/cves.html">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+
+</head>
+
+<body class="content-font">
+  <table class="page-wrap">
+    <tr>
+      <td style="padding:0px">
+
+        <table class="section-table">
+          <tr>
+            <td class="section-cell">
+              <p class="profile-links">
+                <a href="index.html">← Back to Main Page</a>
+              </p>
+            </td>
+          </tr>
+        </table>
+
+        <table class="section-table">
+          <tr>
+            <td class="section-cell">
+              <div class="section-heading">
+                <h2>CVEs</h2>
+              </div>
+              <p class="cve-description">
+                I have discovered some vulnerabilities in popular OSS (over 30 CVEs in repos with >1K stars on GitHub), as well as in products maintained by companies including Google, Microsoft, Meta, Ant Group (Alipay) and HuggingFace.
+                A complete list of them is shown below.
+              </p>
+              <table id="cve-table" class="two-col-table">
+                <!-- CVE data will be loaded here dynamically -->
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+
+  <!-- MapMyVisitors: tracking -->
+  <img src="https://mapmyvisitors.com/map.png?cl=ffffff&w=a&t=n&d=FX1hZN3SQSQHqnCdB1OyKD2209usY5z0tSS85H2o5cg" style="display:none;" alt="">
+
+  <script>
+    // Load CVE data from YAML file
+    async function loadCVEData() {
+      try {
+        const response = await fetch('data/cve.yaml');
+        const yamlText = await response.text();
+        const data = jsyaml.load(yamlText);
+        
+        const table = document.getElementById('cve-table');
+        
+        // Generate table rows
+        data.cves.forEach(cve => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td><a href="${cve.url}">${cve.id}</a></td>
+            <td><a href="${cve.product_url}">${cve.product}</a></td>
+            <td>${cve.type}</td>
+          `;
+          table.appendChild(row);
+        });
+      } catch (error) {
+        console.error('Error loading CVE data:', error);
+        // Fallback: show error message
+        const table = document.getElementById('cve-table');
+        table.innerHTML = '<tr><td colspan="3">Error loading CVE data. Please check the console for details.</td></tr>';
+      }
+    }
+
+    // Load data when page is ready
+    document.addEventListener('DOMContentLoaded', loadCVEData);
+  </script>
+</body>
+
+</html>
