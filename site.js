@@ -232,10 +232,7 @@ function renderVendorCollaborations(vendors) {
   const icon = v => v.domain
     ? `<img class="company-icon" src="https://www.google.com/s2/favicons?sz=64&domain=${v.domain}" alt="" loading="lazy">`
     : '';
-  const nameHtml = ordered.map(v => {
-    const label = recsOf(v).length ? `<strong>${v.name}</strong>` : v.name;
-    return `<span class="company"> ${icon(v)}${label}</span>`;
-  });
+  const nameHtml = ordered.map(v => `<span class="company"> ${icon(v)}${v.name}</span>`);
   let html = `<p class="cve-description">Companies I have collaborated with directly include ${listToSentence(nameHtml)}.</p>`;
 
   // Recognition paragraph: security halls of fame + MSRC-style leaderboards.

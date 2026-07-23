@@ -28,7 +28,7 @@
 vendors:
   # ── Glue ────────────────────────────────────────────────────────────────
   - name: "Glue"
-    rank: 14
+    rank: 19
     domain: "glue.ai"
     findings:
       - title: "MCP OAuth authorization flaw leading to Account Takeover (ATO)"
@@ -42,7 +42,7 @@ vendors:
 
   # ── Lutra AI ────────────────────────────────────────────────────────────
   - name: "Lutra AI"
-    rank: 13
+    rank: 18
     domain: "lutra.ai"
     findings:
       - title: "MCP OAuth authorization flaw leading to Data Exfiltration"
@@ -56,7 +56,7 @@ vendors:
 
   # ── Smithery ────────────────────────────────────────────────────────────
   - name: "Smithery"
-    rank: 12
+    rank: 17
     domain: "smithery.ai"
     findings:
       - title: "MCP OAuth authorization flaw leading to Account Takeover (ATO)"
@@ -70,7 +70,7 @@ vendors:
 
   # ── Square (Block, Inc.) ────────────────────────────────────────────────
   - name: "Square"
-    rank: 5
+    rank: 6
     domain: "squareup.com"
     findings:
       - title: "From OAuth to Oops: 1-click Persistent Data Exfiltration in Square MCP OAuth Infrastructure"
@@ -84,7 +84,7 @@ vendors:
 
   # ── Linear ──────────────────────────────────────────────────────────────
   - name: "Linear"
-    rank: 9
+    rank: 10
     domain: "linear.app"
     findings:
       - title: "Linear MCP OAuth Infrastructure is vulnerable to 1-click MCP token compromise"
@@ -98,7 +98,7 @@ vendors:
 
   # ── BambooHR ────────────────────────────────────────────────────────────
   - name: "BambooHR"
-    rank: 10
+    rank: 11
     domain: "bamboohr.com"
     findings:
       - title: "BambooHR is Vulnerable to 1-click Tenant Compromise via OAuth Authorization"
@@ -112,7 +112,7 @@ vendors:
 
   # ── Sentry.io ───────────────────────────────────────────────────────────
   - name: "Sentry.io"
-    rank: 8
+    rank: 9
     domain: "sentry.io"
     findings:
       - title: "MCP OAuth 1-click token leakage"
@@ -126,7 +126,7 @@ vendors:
 
   # ── Stack Overflow (Stack Exchange) ─────────────────────────────────────
   - name: "Stack Overflow"
-    rank: 6
+    rank: 7
     domain: "stackoverflow.com"
     findings:
       - title: "MCP OAuth 1-click token leakage"
@@ -142,7 +142,7 @@ vendors:
 
   # ── Hugging Face ────────────────────────────────────────────────────────
   - name: "Hugging Face"
-    rank: 7
+    rank: 8
     domain: "huggingface.co"
     findings:
       - title: "MCP Inspector RCE"
@@ -224,7 +224,7 @@ vendors:
 
   # ── Composio ────────────────────────────────────────────────────────────
   - name: "Composio"
-    rank: 11
+    rank: 16
     domain: "composio.dev"
     findings:
       - title: "Critical Token Leakage Vulnerability"
@@ -250,3 +250,73 @@ vendors:
         cve: null
         references: []
         notes: "SecretFlow federated-learning framework"
+
+  # ── JD.com ──────────────────────────────────────────────────────────────
+  - name: "JD.com"
+    rank: 5
+    domain: "jd.com"
+    findings:
+      - title: "Security vulnerability disclosures (bug bounty program)"
+        vuln_class: null
+        date: "2020"
+        bounty_usd: null
+        recognition: null
+        cve: null
+        references: []
+        notes: "JD Security Response Center (JSRC), China, 2020 (year approximate)"
+
+  # ── Hworld / Huazhu ─────────────────────────────────────────────────────
+  - name: "Hworld"
+    rank: 12
+    domain: "hworld.com"
+    findings:
+      - title: "Security vulnerability disclosures (bug bounty program)"
+        vuln_class: null
+        date: "2021"
+        bounty_usd: null
+        recognition: "#3"
+        cve: null
+        references: []
+        notes: "#3 in bug bounty program, China, 2021"
+
+  # ── Shuidi (Waterdrop) ──────────────────────────────────────────────────
+  - name: "Shuidi"
+    rank: 13
+    domain: "shuidihuzhu.com"
+    findings:
+      - title: "Security vulnerability disclosures (bug bounty program)"
+        vuln_class: null
+        date: "2021"
+        bounty_usd: null
+        recognition: "#1 — Most Critical Vulnerability of the Year"
+        cve: null
+        references: []
+        notes: "#1 in bug bounty program, China, 2021"
+
+  # ── Youzan ──────────────────────────────────────────────────────────────
+  - name: "Youzan"
+    rank: 14
+    domain: "youzan.com"
+    findings:
+      - title: "Security vulnerability disclosures (bug bounty program)"
+        vuln_class: null
+        date: "2020"
+        bounty_usd: null
+        recognition: null
+        cve: null
+        references: []
+        notes: "China, 2020 (year approximate)"
+
+  # ── Intsig ──────────────────────────────────────────────────────────────
+  - name: "Intsig"
+    rank: 15
+    domain: "intsig.com"
+    findings:
+      - title: "Security vulnerability disclosures (bug bounty program)"
+        vuln_class: null
+        date: "2021"
+        bounty_usd: null
+        recognition: "#13"
+        cve: null
+        references: []
+        notes: "#13 in bug bounty program, China, 2021"
