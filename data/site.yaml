@@ -117,6 +117,11 @@ talks:
       - label: "video"
         url: "/"
 
+honors:
+  - title: "International Doctoral Recruitment Fellowship"
+    org: "University of California, Santa Barbara (UCSB)"
+    period: "2026"
+
 ctf:
   preview_count: 5  # number of CVEs to show on index.html
   entries:

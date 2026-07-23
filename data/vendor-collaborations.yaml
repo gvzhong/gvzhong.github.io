@@ -1,0 +1,252 @@
+# =============================================================================
+# Vendor Collaboration Records — Source of Truth
+# Maintained by Jiacheng (Gavin) Zhong
+#
+# Real-world vulnerabilities responsibly disclosed to and remediated by vendors.
+# Add new records over time; this file is the authoritative career record.
+#
+# Structure: grouped by vendor. Each vendor has one or more `findings`.
+#
+# Vendor fields:
+#   - name        : company name
+#   - rank        : display order by prominence (1 = shown first); lower = earlier
+#   - domain      : primary web domain, used to fetch the company favicon/logo ("" = none)
+#   - findings    : list of findings (fields below)
+#
+# Finding fields:
+#   - title       : report / advisory title
+#   - vuln_class  : short vulnerability category
+#   - date        : ISO 8601 (YYYY-MM-DD) disclosure / report date, or null
+#   - bounty_usd  : numeric reward in USD, or null if none / undisclosed
+#   - bounty_rmb  : numeric reward in RMB (optional; used when paid in RMB)
+#   - recognition : Hall of Fame, leaderboard, or other acknowledgement, or null
+#   - cve         : associated CVE id, or null
+#   - references  : list of {label, url}
+#   - notes       : free-form notes
+# =============================================================================
+
+vendors:
+  # ── Glue ────────────────────────────────────────────────────────────────
+  - name: "Glue"
+    rank: 14
+    domain: "glue.ai"
+    findings:
+      - title: "MCP OAuth authorization flaw leading to Account Takeover (ATO)"
+        vuln_class: "MCP OAuth → ATO"
+        date: "2025-07-17"
+        bounty_usd: null
+        recognition: null
+        cve: null
+        references: []
+        notes: ""
+
+  # ── Lutra AI ────────────────────────────────────────────────────────────
+  - name: "Lutra AI"
+    rank: 13
+    domain: "lutra.ai"
+    findings:
+      - title: "MCP OAuth authorization flaw leading to Data Exfiltration"
+        vuln_class: "MCP OAuth → Data Exfiltration"
+        date: "2025-08-07"
+        bounty_usd: null
+        recognition: null
+        cve: null
+        references: []
+        notes: ""
+
+  # ── Smithery ────────────────────────────────────────────────────────────
+  - name: "Smithery"
+    rank: 12
+    domain: "smithery.ai"
+    findings:
+      - title: "MCP OAuth authorization flaw leading to Account Takeover (ATO)"
+        vuln_class: "MCP OAuth → ATO"
+        date: "2025-08-04"
+        bounty_usd: 500
+        recognition: null
+        cve: null
+        references: []
+        notes: ""
+
+  # ── Square (Block, Inc.) ────────────────────────────────────────────────
+  - name: "Square"
+    rank: 5
+    domain: "squareup.com"
+    findings:
+      - title: "From OAuth to Oops: 1-click Persistent Data Exfiltration in Square MCP OAuth Infrastructure"
+        vuln_class: "MCP OAuth → 1-click Persistent Data Exfiltration"
+        date: "2025-08-15"
+        bounty_usd: 5000
+        recognition: "Hall of Fame"
+        cve: null
+        references: []
+        notes: ""
+
+  # ── Linear ──────────────────────────────────────────────────────────────
+  - name: "Linear"
+    rank: 9
+    domain: "linear.app"
+    findings:
+      - title: "Linear MCP OAuth Infrastructure is vulnerable to 1-click MCP token compromise"
+        vuln_class: "MCP OAuth → 1-click token compromise"
+        date: "2025-08-07"
+        bounty_usd: 2000
+        recognition: null
+        cve: null
+        references: []
+        notes: ""
+
+  # ── BambooHR ────────────────────────────────────────────────────────────
+  - name: "BambooHR"
+    rank: 10
+    domain: "bamboohr.com"
+    findings:
+      - title: "BambooHR is Vulnerable to 1-click Tenant Compromise via OAuth Authorization"
+        vuln_class: "OAuth → 1-click Tenant Compromise"
+        date: "2025-02-03"
+        bounty_usd: 750
+        recognition: null
+        cve: null
+        references: []
+        notes: ""
+
+  # ── Sentry.io ───────────────────────────────────────────────────────────
+  - name: "Sentry.io"
+    rank: 8
+    domain: "sentry.io"
+    findings:
+      - title: "MCP OAuth 1-click token leakage"
+        vuln_class: "MCP OAuth → 1-click token leakage"
+        date: "2025-08-19"
+        bounty_usd: 2500
+        recognition: "HackerOne Hall of Fame"
+        cve: null
+        references: []
+        notes: ""
+
+  # ── Stack Overflow (Stack Exchange) ─────────────────────────────────────
+  - name: "Stack Overflow"
+    rank: 6
+    domain: "stackoverflow.com"
+    findings:
+      - title: "MCP OAuth 1-click token leakage"
+        vuln_class: "MCP OAuth → 1-click token leakage"
+        date: "2025-11-18"
+        bounty_usd: null
+        recognition: "Hall of Fame"
+        cve: null
+        references:
+          - label: "Stack Exchange Security Hall of Fame"
+            url: "https://stackexchange.com/about/security"
+        notes: ""
+
+  # ── Hugging Face ────────────────────────────────────────────────────────
+  - name: "Hugging Face"
+    rank: 7
+    domain: "huggingface.co"
+    findings:
+      - title: "MCP Inspector RCE"
+        vuln_class: "RCE (XSS & RCE)"
+        date: null
+        bounty_usd: null
+        recognition: null
+        cve: "CVE-2025-58444"
+        references:
+          - label: "GHSA advisory"
+            url: "https://github.com/modelcontextprotocol/inspector/security/advisories/GHSA-g9hg-qhmf-q45m"
+        notes: "MCP Inspector — see data/cve.yaml"
+
+      - title: "Multiple Gradio vulnerabilities"
+        vuln_class: "CSRF & Bypass (and related)"
+        date: null
+        bounty_usd: null
+        recognition: null
+        cve: "CVE-2025-5320"
+        references:
+          - label: "NVD"
+            url: "https://nvd.nist.gov/vuln/detail/CVE-2025-5320"
+        notes: "Several Gradio CVEs — see data/cve.yaml"
+
+      - title: "Smolagents Sandbox Escape"
+        vuln_class: "Sandbox Escape"
+        date: null
+        bounty_usd: 500
+        recognition: null
+        cve: "CVE-2025-5120"
+        references:
+          - label: "huntr bounty"
+            url: "https://huntr.com/bounties/63ab1cfe-b573-4cf5-a7d3-fb6c957e34b0"
+        notes: "HuggingFace Transformers & Smolagents — see data/cve.yaml"
+
+  # ── Microsoft ───────────────────────────────────────────────────────────
+  - name: "Microsoft"
+    rank: 2
+    domain: "microsoft.com"
+    findings:
+      - title: "Azure CLI Remote Code Execution"
+        vuln_class: "RCE"
+        date: null
+        bounty_usd: null
+        recognition: "MSRC Q1 2025 Leaderboard; MSRC Q1 2026 Leaderboard"
+        cve: "CVE-2025-24049"
+        references:
+          - label: "MSRC advisory"
+            url: "https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2025-24049"
+        notes: ""
+
+  # ── Google ──────────────────────────────────────────────────────────────
+  - name: "Google"
+    rank: 1
+    domain: "google.com"
+    findings:
+      - title: "Gemini CLI MCP auth RCE"
+        vuln_class: "MCP OAuth → RCE"
+        date: null
+        bounty_usd: 500
+        recognition: null
+        cve: null
+        references: []
+        notes: ""
+
+  # ── Meta ────────────────────────────────────────────────────────────────
+  - name: "Meta"
+    rank: 3
+    domain: "meta.com"
+    findings:
+      - title: "Llama Stack Sandbox Escape"
+        vuln_class: "Sandbox Escape"
+        date: null
+        bounty_usd: null
+        recognition: null
+        cve: null
+        references: []
+        notes: ""
+
+  # ── Composio ────────────────────────────────────────────────────────────
+  - name: "Composio"
+    rank: 11
+    domain: "composio.dev"
+    findings:
+      - title: "Critical Token Leakage Vulnerability"
+        vuln_class: "Token Leakage"
+        date: "2025-08-10"
+        bounty_usd: 2000
+        recognition: null
+        cve: null
+        references: []
+        notes: ""
+
+  # ── Alipay (Ant Group) ──────────────────────────────────────────────────
+  - name: "Alipay"
+    rank: 4
+    domain: "alipay.com"
+    findings:
+      - title: "Sandbox Escape in SecretFlow FL Framework, Leading to RCE"
+        vuln_class: "Sandbox Escape → RCE"
+        date: "2025-04-22"
+        bounty_usd: null
+        bounty_rmb: 9000
+        recognition: null
+        cve: null
+        references: []
+        notes: "SecretFlow federated-learning framework"

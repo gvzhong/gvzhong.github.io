@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', async function () {
   renderPublications(data.publications);
   renderTalks(data.talks);
   renderCTF(data.ctf);
+  renderHonors(data.honors);
   renderExperiences(data.experiences);
   renderServices(data.services);
   wireNewsToggle();
@@ -22,6 +23,11 @@ document.addEventListener('DOMContentLoaded', async function () {
   fetch('data/cve.yaml')
     .then(r => { if (!r.ok) throw new Error('cve.yaml not found'); return r.text(); })
     .then(yaml => renderCVEPreview(jsyaml.load(yaml).cves, 8))
+    .catch(() => {});
+
+  fetch('data/vendor-collaborations.yaml')
+    .then(r => { if (!r.ok) throw new Error('vendor-collaborations.yaml not found'); return r.text(); })
+    .then(yaml => renderVendorCollaborations(jsyaml.load(yaml).vendors))
     .catch(() => {});
 });
 
@@ -150,6 +156,20 @@ function renderCTF(ctf) {
   });
 }
 
+function renderHonors(honors) {
+  const tbody = document.querySelector('#honors-tbody');
+  if (!tbody || !honors) return;
+
+  honors.forEach(h => {
+    const org = h.org ? `, ${h.org}` : '';
+    tbody.innerHTML += `
+      <tr>
+        <td><strong>${h.title}</strong>${org}</td>
+        <td><em>${h.period || ''}</em> &emsp;</td>
+      </tr>`;
+  });
+}
+
 function renderExperiences(experiences) {
   const tbody = document.querySelector('#experiences-tbody');
   if (!tbody) return;
@@ -186,6 +206,48 @@ function wireNewsToggle() {
     collapsed.style.display = expanded ? 'none' : 'block';
     btn.textContent = expanded ? '⋯ more' : '⋯ less';
   });
+}
+
+function listToSentence(items) {
+  if (items.length <= 1) return items.join('');
+  if (items.length === 2) return items.join(' and ');
+  return `${items.slice(0, -1).join(', ')}, and ${items[items.length - 1]}`;
+}
+
+function renderVendorCollaborations(vendors) {
+  const note = document.querySelector('#vendor-collab-note');
+  if (!note || !vendors) return;
+
+  const recsOf = v => (v.findings || []).map(f => f.recognition).filter(Boolean);
+  const hasRec = (v, re) => recsOf(v).some(r => re.test(r));
+
+  // Sort by prominence (rank); unranked vendors fall to the end.
+  const ordered = [...vendors].sort((a, b) => (a.rank ?? 999) - (b.rank ?? 999));
+
+  // Company favicon (data-driven via `domain`); recognized companies are bolded.
+  const icon = v => v.domain
+    ? `<img class="company-icon" src="https://www.google.com/s2/favicons?sz=64&domain=${v.domain}" alt="" loading="lazy">`
+    : '';
+  const nameHtml = ordered.map(v => {
+    const label = recsOf(v).length ? `<strong>${v.name}</strong>` : v.name;
+    return `<span class="company"> ${icon(v)}${label}</span>`;
+  });
+  let html = `<p class="cve-description">Companies I have partnered with directly include ${listToSentence(nameHtml)}.</p>`;
+
+  // Recognition paragraph: security halls of fame + MSRC-style leaderboards.
+  const hof = ordered.filter(v => hasRec(v, /hall of fame/i)).map(v => v.name);
+  const boards = [];
+  ordered.forEach(v => recsOf(v).forEach(r => {
+    if (/leaderboard/i.test(r)) boards.push(`${v.name}'s ${r.replace(/;\s*/g, ' and ')}`);
+  }));
+
+  const recs = [];
+  if (hof.length) recs.push(`security halls of fame at ${listToSentence(hof)}`);
+  if (boards.length) recs.push(listToSentence(boards));
+  if (recs.length) {
+    html += `<p class="cve-description">Several of these disclosures earned formal recognition, including ${recs.join(', as well as ')}.</p>`;
+  }
+  note.innerHTML = html;
 }
 
 function renderCVEPreview(cves, limit) {

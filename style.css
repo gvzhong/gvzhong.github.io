@@ -211,6 +211,19 @@ span.highlight {
   margin-right: 5%;
 }
 
+/* Company list with inline favicons (below the CVE table) */
+.company {
+  white-space: nowrap;
+}
+
+.company-icon {
+  width: 16px;
+  height: 16px;
+  vertical-align: -3px;
+  margin-right: 3px;
+  border-radius: 3px;
+}
+
 /* ── Footer ──────────────────────────────────────────────── */
 
 .footer-cell {
