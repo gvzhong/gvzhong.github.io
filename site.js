@@ -122,7 +122,11 @@ function renderTalks(talks) {
   const container = document.querySelector('#talks-list');
   if (!container) return;
 
-  talks.forEach(talk => {
+  // Speaker talks first, then contributor/other; order preserved within each group.
+  const speakerFirst = t => (/^\s*speaker/i.test(t.venue || '') ? 0 : 1);
+  const ordered = [...talks].sort((a, b) => speakerFirst(a) - speakerFirst(b));
+
+  ordered.forEach(talk => {
     const linksHtml = entryLinks(talk.links);
     container.innerHTML += `
       <table class="section-table">
@@ -164,7 +168,7 @@ function renderHonors(honors) {
     const org = h.org ? `, ${h.org}` : '';
     tbody.innerHTML += `
       <tr>
-        <td><strong>${h.title}</strong>${org}</td>
+        <td>${h.title}${org}</td>
         <td><em>${h.period || ''}</em> &emsp;</td>
       </tr>`;
   });
@@ -232,7 +236,7 @@ function renderVendorCollaborations(vendors) {
     const label = recsOf(v).length ? `<strong>${v.name}</strong>` : v.name;
     return `<span class="company"> ${icon(v)}${label}</span>`;
   });
-  let html = `<p class="cve-description">Companies I have partnered with directly include ${listToSentence(nameHtml)}.</p>`;
+  let html = `<p class="cve-description">Companies I have collaborated with directly include ${listToSentence(nameHtml)}.</p>`;
 
   // Recognition paragraph: security halls of fame + MSRC-style leaderboards.
   const hof = ordered.filter(v => hasRec(v, /hall of fame/i)).map(v => v.name);

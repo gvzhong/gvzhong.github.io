@@ -2,9 +2,9 @@ profile:
   name: "Jiacheng/Gavin Zhong"
   photo: "images/photo.png"
   bio:
-    - "I am a recent Master's graduate in Security Informatics from <a href='https://www.jhu.edu/'>Johns Hopkins University</a>, where I was advised by <a href='https://yinzhicao.org'>Prof. Yinzhi Cao</a>."
-    - "My research focuses on AI System Security, Program Analysis and Identity Security, particularly building agentic system to detect and exploit vulnerabilities in large-scale applications, acknowledged by Microsoft, Google, Meta, Alibaba and HuggingFace."
-    - "Besides, I play CTFs! I'm a team lead of JHU's inaugural eCTF team to design secure systems while exploiting cryptographic flaws, earning top placements in Raymond James CTF and Mountain West Cyber Challenge, and a member of CTF team r3kapig (international team, Top 3 on <a href='https://ctftime.org/'>CTFTime.org</a>)"
+    - "I am an incoming Ph.D. student in the <a href='https://seclab.cs.ucsb.edu/'>Computer Security Lab (SecLab)</a> at UC Santa Barbara, where I will be advised by <a href='https://sites.cs.ucsb.edu/~vigna/'>Prof. Giovanni Vigna</a> and <a href='https://sites.cs.ucsb.edu/~chris/'>Prof. Christopher Kruegel</a>. Previously, I earned my Master's in Security Informatics from <a href='https://www.jhu.edu/'>Johns Hopkins University</a>, where I had the pleasure of working with <a href='https://yinzhicao.org'>Prof. Yinzhi Cao</a>."
+    - "My research focuses on Web Security, AI System Security, and Identity Security. I am passionate about building autonomous systems that detect and defend against vulnerabilities at scale. My work has been recognized by leading technology companies and major international media."
+    - "Besides, I play CTFs! I was a team lead of JHU's inaugural eCTF team to design secure systems while exploiting cryptographic flaws, earning top placements in Raymond James CTF and Mountain West Cyber Challenge, and a member of CTF team r3kapig (international team, Top 3 on <a href='https://ctftime.org/'>CTFTime.org</a>)"
   links:
     - label: "Email"
       url: "https://mailhide.io/e/2XaRtyGh"
@@ -94,7 +94,14 @@ talks:
       - label: "slides"
         url: "/"
       - label: "video"
-        url: "/" 
+        url: "/"
+  - title: "LaunchBreak: a Slip of Tea, a Click, a Full Multi-stage Desktop Takeover"
+    venue: "Contributor, DEFCON 34, Las Vegas, Aug 2026"
+    links:
+      - label: "slides"
+        url: "/"
+      - label: "video"
+        url: "/"
   - title: "Remote Server, Local Root. Welcome to MCP."
     venue: "Speaker, Black Hat Asia 2026, April 2026"
     links:
@@ -121,12 +128,18 @@ honors:
   - title: "International Doctoral Recruitment Fellowship"
     org: "University of California, Santa Barbara (UCSB)"
     period: "2026"
+  - title: "Computer Science Departmental Fellowship"
+    org: "University of California, Santa Barbara (UCSB)"
+    period: "2026"
+  - title: "Black Hat Student Scholarship"
+    org: "Black Hat"
+    period: "2024"
 
 ctf:
   preview_count: 5  # number of CVEs to show on index.html
   entries:
     - team: "r3kapig"
-      description: "Won <strong>6</strong> medals from July 2025 to Now, <strong>1 <span style='color:gold'>Gold</span> + 2 <span style='color:silver'>Silver</span> + 3 <span style='color:burlywood'>Bronze</span></strong>"
+      description: "Won <strong>14</strong> medals in 2025, <strong>4 <span style='color:gold'>Gold</span> + 5 <span style='color:silver'>Silver</span> + 5 <span style='color:burlywood'>Bronze</span></strong>"
       period: "2025 July. - Now"
     - team: "The Group Z0D1AC"
       description: "Achieved 2nd place Raymond JamesCTF 2024 <strong>($5000 cash prize)</strong><br>Achieved 5th place Mountain West Cyber Challenge 2024"
@@ -147,5 +160,6 @@ experiences:
 services:
   - role: "External Reviewer"
     items:
+      - "The Network and Distributed System Security Symposium (NDSS '27)"
       - "The Third International Workshop on Large Language Models for Code (LLM4Code '26)"
       - "Annual Computer Security Applications Conference (ACSAC '25)"
