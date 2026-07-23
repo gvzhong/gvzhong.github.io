@@ -252,7 +252,7 @@ vendors:
         notes: "SecretFlow federated-learning framework"
 
   # ── JD.com ──────────────────────────────────────────────────────────────
-  - name: "JD.com"
+  - name: "JD"
     rank: 5
     domain: "jd.com"
     findings:
