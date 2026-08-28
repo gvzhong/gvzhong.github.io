@@ -20,8 +20,12 @@ profile:
 
 news:
   # First item is always visible; the rest collapse under "⋯ more"
+  - date: "Aug. 2026"
+    text: "Our paper: <a href='/'>Comment and Control: Hijacking Agentic Workflows via Context-Grounded Evolution</a> accepted at ACM CCS 2026."
   - date: "Jun. 2026"
     text: "Our talk: <a href='/'>Get Set, Exploit! Unveiling Python Class Pollution In-the-Wild</a> accepted at DEF CON 34. See you in Las Vegas!"
+  - date: "Jun. 2026"
+    text: "Our talk: <a href='/'>LaunchBreak: a Slip of Tea, a Click, a Full Multi-stage Desktop Takeover</a> accepted at DEF CON 34."
   - date: "Feb. 2026"
     text: "Our talk: <a href='https://blackhat.com/asia-26/briefings/schedule/#remote-server-local-root-welcome-to-mcp-51175'>Remote Server, Local Root. Welcome to MCP.</a> accepted at Black Hat Asia 2026."
   - date: "Dec. 2025"
@@ -30,13 +34,11 @@ news:
     text: "My latest <a href='https://www.obsidiansecurity.com/blog/from-well-known-to-well-pwned-common-vulnerabilities-in-ai-agents/'>agentic system research</a> went public"
   - date: "Sep. 2025"
     text: "Designed <a href='https://ctf.secjhu.club/'>three web challenges</a> for JHU Web Security course"
-  - date: "Sep. 2025"
-    text: "$5,000 bounty from Square vulnerability report"
 
 publications:
   - title: "Comment and Control: Hijacking Agentic Workflows via Context-Grounded Evolution"
     authors: "Neil Fendley*, Zhengyu Liu*, Aonan Guan, <strong>Jiacheng Zhong</strong>, and Yinzhi Cao (*equal contribution)"
-    venue: "preprint"
+    venue: "To appear in the proceedings of ACM Conference on Computer and Communications Security (CCS), 2026"
     featured_by:
       - label: "The Register"
         url: "https://www.theregister.com/2026/04/15/claude_gemini_copilot_agents_hijacked/"
@@ -66,7 +68,7 @@ publications:
         url: "https://labs.cloudsecurityalliance.org/research/csa-research-note-comment-control-github-prompt-injection-20/"
     links:
       - label: "paper"
-        url: "https://jackfromeast.github.io/assets/CommentControl.pdf"
+        url: "/"
       - label: "poster"
         url: "/"
       - label: "code"
@@ -151,7 +153,7 @@ experiences:
   - role: "Security Researcher, Obsidian Security"
     period: "2025 June. - 2025 July."
   - role: "Research Assistant, JHU, Advisor: Dr. Yinzhi Cao"
-    period: "2024 Dec. - 2025 June."
+    period: "2024 Dec. - Now."
   - role: "Course Assistant, EN.650.660 Software Vulnerability Analysis (24 Fall), JHU"
     period: "2024 Sep. - 2024 Dec."
   - role: "Security Intern, Obsidian Security"
