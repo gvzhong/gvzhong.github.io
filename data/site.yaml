@@ -20,6 +20,8 @@ profile:
 
 news:
   # First item is always visible; the rest collapse under "⋯ more"
+  - date: "Sep. 2026"
+    text: "Our paper: <a href='/'>Call Back Later: Studying and Detecting Reentrant Interpretation Vulnerability in Python Interpreters</a> accepted at IEEE S&P (Oakland) 2027."
   - date: "Aug. 2026"
     text: "Our paper: <a href='/'>Comment and Control: Hijacking Agentic Workflows via Context-Grounded Evolution</a> accepted at ACM CCS 2026."
   - date: "Jun. 2026"
@@ -36,6 +38,19 @@ news:
     text: "Designed <a href='https://ctf.secjhu.club/'>three web challenges</a> for JHU Web Security course"
 
 publications:
+  - title: "Call Back Later: Studying and Detecting Reentrant Interpretation Vulnerability in Python Interpreters"
+    authors: "Zhengyu Liu, Zhuohao Zhang, Yingfei Xu, Yu Sun, <strong>Jiacheng Zhong</strong>, Letao Zhao, Jianjia Yu, Ziyang Li, and Yinzhi Cao"
+    venue: "To appear in the proceedings of the IEEE Symposium on Security and Privacy (Oakland), 2027"
+    links:
+      - label: "paper"
+        url: "/"
+      - label: "poster"
+        url: "/"
+      - label: "code"
+        url: "/"
+      - label: "slides"
+        url: "/"
+
   - title: "Comment and Control: Hijacking Agentic Workflows via Context-Grounded Evolution"
     authors: "Neil Fendley*, Zhengyu Liu*, Aonan Guan, <strong>Jiacheng Zhong</strong>, and Yinzhi Cao (*equal contribution)"
     venue: "To appear in the proceedings of ACM Conference on Computer and Communications Security (CCS), 2026"
