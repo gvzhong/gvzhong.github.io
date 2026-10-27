@@ -28,7 +28,7 @@
 vendors:
   # ── Glue ────────────────────────────────────────────────────────────────
   - name: "Glue"
-    rank: 20
+    rank: 21
     domain: "glue.ai"
     findings:
       - title: "MCP OAuth authorization flaw leading to Account Takeover (ATO)"
@@ -42,7 +42,7 @@ vendors:
 
   # ── Lutra AI ────────────────────────────────────────────────────────────
   - name: "Lutra AI"
-    rank: 19
+    rank: 20
     domain: "lutra.ai"
     findings:
       - title: "MCP OAuth authorization flaw leading to Data Exfiltration"
@@ -56,7 +56,7 @@ vendors:
 
   # ── Smithery ────────────────────────────────────────────────────────────
   - name: "Smithery"
-    rank: 18
+    rank: 19
     domain: "smithery.ai"
     findings:
       - title: "MCP OAuth authorization flaw leading to Account Takeover (ATO)"
@@ -70,7 +70,7 @@ vendors:
 
   # ── Square (Block, Inc.) ────────────────────────────────────────────────
   - name: "Square"
-    rank: 7
+    rank: 8
     domain: "squareup.com"
     findings:
       - title: "From OAuth to Oops: 1-click Persistent Data Exfiltration in Square MCP OAuth Infrastructure"
@@ -84,7 +84,7 @@ vendors:
 
   # ── Linear ──────────────────────────────────────────────────────────────
   - name: "Linear"
-    rank: 11
+    rank: 12
     domain: "linear.app"
     findings:
       - title: "Linear MCP OAuth Infrastructure is vulnerable to 1-click MCP token compromise"
@@ -98,7 +98,7 @@ vendors:
 
   # ── BambooHR ────────────────────────────────────────────────────────────
   - name: "BambooHR"
-    rank: 12
+    rank: 13
     domain: "bamboohr.com"
     findings:
       - title: "BambooHR is Vulnerable to 1-click Tenant Compromise via OAuth Authorization"
@@ -112,7 +112,7 @@ vendors:
 
   # ── Sentry.io ───────────────────────────────────────────────────────────
   - name: "Sentry.io"
-    rank: 10
+    rank: 11
     domain: "sentry.io"
     findings:
       - title: "MCP OAuth 1-click token leakage"
@@ -126,7 +126,7 @@ vendors:
 
   # ── Stack Overflow (Stack Exchange) ─────────────────────────────────────
   - name: "Stack Overflow"
-    rank: 8
+    rank: 9
     domain: "stackoverflow.com"
     findings:
       - title: "MCP OAuth 1-click token leakage"
@@ -142,7 +142,7 @@ vendors:
 
   # ── Hugging Face ────────────────────────────────────────────────────────
   - name: "Hugging Face"
-    rank: 9
+    rank: 10
     domain: "huggingface.co"
     findings:
       - title: "MCP Inspector RCE"
@@ -238,9 +238,29 @@ vendors:
             url: "https://app.intigriti.com/researcher/inbox/submissions/NVIDIA-538NJCA2"
         notes: "NVIDIA Vulnerability Disclosure Program via Intigriti; severity High (CVSS 8.1); last updated 2026-08-27."
 
+  # ── WordPress ───────────────────────────────────────────────────────────
+  - name: "WordPress"
+    rank: 5
+    domain: "wordpress.org"
+    findings:
+      - title: "Cross-site scripting via a trusted oEmbed provider (Imgur embeds)"
+        vuln_class: "XSS (trusted oEmbed provider)"
+        date: "2026-10-06"
+        bounty_usd: null
+        recognition: "Credited in the WordPress 7.1.3 security release notes"
+        cve: null
+        references:
+          - label: "WordPress 7.1.3 Maintenance and Security Release"
+            url: "https://wordpress.org/news/2026/10/wordpress-7-1-3-maintenance-and-security-release/"
+        notes: >-
+          Reported jointly with Zhengyu Liu and Jingcheng Yang. Imgur was on WordPress's trusted
+          oEmbed allowlist, which bypasses the sandboxing filter, so uploader-controlled response
+          text rendered unfiltered; the fix removes Imgur as a trusted provider. No CVE identifier
+          had been published for this item as of 2026-10-26.
+
   # ── Composio ────────────────────────────────────────────────────────────
   - name: "Composio"
-    rank: 17
+    rank: 18
     domain: "composio.dev"
     findings:
       - title: "Critical Token Leakage Vulnerability"
@@ -254,7 +274,7 @@ vendors:
 
   # ── Alipay (Ant Group) ──────────────────────────────────────────────────
   - name: "Alipay"
-    rank: 5
+    rank: 6
     domain: "alipay.com"
     findings:
       - title: "Sandbox Escape in SecretFlow FL Framework, Leading to RCE"
@@ -269,7 +289,7 @@ vendors:
 
   # ── JD.com ──────────────────────────────────────────────────────────────
   - name: "JD"
-    rank: 6
+    rank: 7
     domain: "jd.com"
     findings:
       - title: "Security vulnerability disclosures (bug bounty program)"
@@ -283,7 +303,7 @@ vendors:
 
   # ── Hworld / Huazhu ─────────────────────────────────────────────────────
   - name: "Hworld"
-    rank: 13
+    rank: 14
     domain: "hworld.com"
     findings:
       - title: "Security vulnerability disclosures (bug bounty program)"
@@ -297,7 +317,7 @@ vendors:
 
   # ── Shuidi (Waterdrop) ──────────────────────────────────────────────────
   - name: "Shuidi"
-    rank: 14
+    rank: 15
     domain: "shuidihuzhu.com"
     findings:
       - title: "Security vulnerability disclosures (bug bounty program)"
@@ -311,7 +331,7 @@ vendors:
 
   # ── Youzan ──────────────────────────────────────────────────────────────
   - name: "Youzan"
-    rank: 15
+    rank: 16
     domain: "youzan.com"
     findings:
       - title: "Security vulnerability disclosures (bug bounty program)"
@@ -325,7 +345,7 @@ vendors:
 
   # ── Intsig ──────────────────────────────────────────────────────────────
   - name: "Intsig"
-    rank: 16
+    rank: 17
     domain: "intsig.com"
     findings:
       - title: "Security vulnerability disclosures (bug bounty program)"

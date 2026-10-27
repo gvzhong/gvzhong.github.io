@@ -2,7 +2,7 @@ profile:
   name: "Jiacheng/Gavin Zhong"
   photo: "images/photo.png"
   bio:
-    - "I am an incoming Ph.D. student in the <a href='https://seclab.cs.ucsb.edu/'>Computer Security Lab (SecLab)</a> at UC Santa Barbara, where I will be advised by <a href='https://sites.cs.ucsb.edu/~vigna/'>Prof. Giovanni Vigna</a> and <a href='https://sites.cs.ucsb.edu/~chris/'>Prof. Christopher Kruegel</a>. Previously, I earned my Master's in Security Informatics from <a href='https://www.jhu.edu/'>Johns Hopkins University</a>, where I had the pleasure of working with <a href='https://yinzhicao.org'>Prof. Yinzhi Cao</a>."
+    - "I am a first-year Ph.D. student in the <a href='https://seclab.cs.ucsb.edu/'>Computer Security Lab (SecLab)</a> at UC Santa Barbara, where I am advised by <a href='https://sites.cs.ucsb.edu/~vigna/'>Prof. Giovanni Vigna</a> and <a href='https://sites.cs.ucsb.edu/~chris/'>Prof. Christopher Kruegel</a>. Previously, I earned my Master's in Security Informatics from <a href='https://www.jhu.edu/'>Johns Hopkins University</a>, where I had the pleasure of working with <a href='https://yinzhicao.org'>Prof. Yinzhi Cao</a>."
     - "My research focuses on Web Security, AI System Security, and Identity Security. I am passionate about building autonomous systems that detect and defend against vulnerabilities at scale. My work has been recognized by leading technology companies and major international media."
     - "Besides, I play CTFs! I was a team lead of JHU's inaugural eCTF team to design secure systems while exploiting cryptographic flaws, earning top placements in Raymond James CTF and Mountain West Cyber Challenge, and a member of CTF team  <a href='https://ctftime.org/team/58979/'>r3kapig</a>."
   links:
@@ -163,8 +163,10 @@ ctf:
       period: "2023 Sep. - Now"
 
 experiences:
+  - role: "Ph.D. Student, UCSB SecLab, Advisors: Dr. Giovanni Vigna and Dr. Christopher Kruegel"
+    period: "2026 Sep. - Now"
   - role: "Privacy Engineer, TikTok Inc."
-    period: "2025 Aug. - Now"
+    period: "2025 Aug. - 2026 Aug."
   - role: "Security Researcher, Obsidian Security"
     period: "2025 June. - 2025 July."
   - role: "Research Assistant, JHU, Advisor: Dr. Yinzhi Cao"
