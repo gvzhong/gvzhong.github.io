@@ -28,7 +28,7 @@
 vendors:
   # ── Glue ────────────────────────────────────────────────────────────────
   - name: "Glue"
-    rank: 21
+    rank: 27
     domain: "glue.ai"
     findings:
       - title: "MCP OAuth authorization flaw leading to Account Takeover (ATO)"
@@ -42,7 +42,7 @@ vendors:
 
   # ── Lutra AI ────────────────────────────────────────────────────────────
   - name: "Lutra AI"
-    rank: 20
+    rank: 26
     domain: "lutra.ai"
     findings:
       - title: "MCP OAuth authorization flaw leading to Data Exfiltration"
@@ -56,7 +56,7 @@ vendors:
 
   # ── Smithery ────────────────────────────────────────────────────────────
   - name: "Smithery"
-    rank: 19
+    rank: 25
     domain: "smithery.ai"
     findings:
       - title: "MCP OAuth authorization flaw leading to Account Takeover (ATO)"
@@ -70,7 +70,7 @@ vendors:
 
   # ── Square (Block, Inc.) ────────────────────────────────────────────────
   - name: "Square"
-    rank: 8
+    rank: 14
     domain: "squareup.com"
     findings:
       - title: "From OAuth to Oops: 1-click Persistent Data Exfiltration in Square MCP OAuth Infrastructure"
@@ -84,7 +84,7 @@ vendors:
 
   # ── Linear ──────────────────────────────────────────────────────────────
   - name: "Linear"
-    rank: 12
+    rank: 18
     domain: "linear.app"
     findings:
       - title: "Linear MCP OAuth Infrastructure is vulnerable to 1-click MCP token compromise"
@@ -98,7 +98,7 @@ vendors:
 
   # ── BambooHR ────────────────────────────────────────────────────────────
   - name: "BambooHR"
-    rank: 13
+    rank: 19
     domain: "bamboohr.com"
     findings:
       - title: "BambooHR is Vulnerable to 1-click Tenant Compromise via OAuth Authorization"
@@ -112,7 +112,7 @@ vendors:
 
   # ── Sentry.io ───────────────────────────────────────────────────────────
   - name: "Sentry.io"
-    rank: 11
+    rank: 17
     domain: "sentry.io"
     findings:
       - title: "MCP OAuth 1-click token leakage"
@@ -126,7 +126,7 @@ vendors:
 
   # ── Stack Overflow (Stack Exchange) ─────────────────────────────────────
   - name: "Stack Overflow"
-    rank: 9
+    rank: 15
     domain: "stackoverflow.com"
     findings:
       - title: "MCP OAuth 1-click token leakage"
@@ -142,7 +142,7 @@ vendors:
 
   # ── Hugging Face ────────────────────────────────────────────────────────
   - name: "Hugging Face"
-    rank: 10
+    rank: 16
     domain: "huggingface.co"
     findings:
       - title: "MCP Inspector RCE"
@@ -240,7 +240,7 @@ vendors:
 
   # ── WordPress ───────────────────────────────────────────────────────────
   - name: "WordPress"
-    rank: 5
+    rank: 6
     domain: "wordpress.org"
     findings:
       - title: "Cross-site scripting via a trusted oEmbed provider (Imgur embeds)"
@@ -258,9 +258,117 @@ vendors:
           text rendered unfiltered; the fix removes Imgur as a trusted provider. No CVE identifier
           had been published for this item as of 2026-10-26.
 
+  # ── Cisco ───────────────────────────────────────────────────────────────
+  - name: "Cisco"
+    rank: 5
+    domain: "cisco.com"
+    findings:
+      - title: "Web cache deception exposing authenticated user responses"
+        vuln_class: "Web Cache Deception (WCD)"
+        date: null
+        bounty_usd: null
+        recognition: null
+        cve: null
+        references: []
+        notes: >-
+          Found with Caster, our WCD detection framework (joint URL alias synthesis and cache
+          rule inference). The Caster paper abstract lists Cisco among the affected domains,
+          which collectively received acknowledgments and bug bounty rewards; the per-vendor
+          date, bounty amount, recognition, and leaked data type are not recorded yet.
+
+  # ── eBay ────────────────────────────────────────────────────────────────
+  - name: "eBay"
+    rank: 7
+    domain: "ebay.com"
+    findings:
+      - title: "Web cache deception exposing authenticated user responses"
+        vuln_class: "Web Cache Deception (WCD)"
+        date: null
+        bounty_usd: null
+        recognition: null
+        cve: null
+        references: []
+        notes: >-
+          Found with Caster, our WCD detection framework (joint URL alias synthesis and cache
+          rule inference). The Caster paper abstract lists eBay among the affected domains,
+          which collectively received acknowledgments and bug bounty rewards; the per-vendor
+          date, bounty amount, recognition, and leaked data type are not recorded yet.
+
+  # ── FedEx ───────────────────────────────────────────────────────────────
+  - name: "FedEx"
+    rank: 8
+    domain: "fedex.com"
+    findings:
+      - title: "Web cache deception exposing authenticated user responses"
+        vuln_class: "Web Cache Deception (WCD)"
+        date: null
+        bounty_usd: null
+        recognition: null
+        cve: null
+        references: []
+        notes: >-
+          Found with Caster, our WCD detection framework (joint URL alias synthesis and cache
+          rule inference). The Caster paper abstract lists FedEx among the affected domains,
+          which collectively received acknowledgments and bug bounty rewards; the per-vendor
+          date, bounty amount, recognition, and leaked data type are not recorded yet.
+
+  # ── ASUS ────────────────────────────────────────────────────────────────
+  - name: "ASUS"
+    rank: 9
+    domain: "asus.com"
+    findings:
+      - title: "Web cache deception exposing authenticated user responses"
+        vuln_class: "Web Cache Deception (WCD)"
+        date: null
+        bounty_usd: null
+        recognition: null
+        cve: null
+        references: []
+        notes: >-
+          Found with Caster, our WCD detection framework (joint URL alias synthesis and cache
+          rule inference). The Caster paper abstract lists ASUS among the affected domains,
+          which collectively received acknowledgments and bug bounty rewards; the per-vendor
+          date, bounty amount, recognition, and leaked data type are not recorded yet.
+
+  # ── F5 ──────────────────────────────────────────────────────────────────
+  - name: "F5"
+    rank: 10
+    domain: "f5.com"
+    findings:
+      - title: "Web cache deception exposing authenticated user responses"
+        vuln_class: "Web Cache Deception (WCD)"
+        date: null
+        bounty_usd: null
+        recognition: null
+        cve: null
+        references: []
+        notes: >-
+          Found with Caster, our WCD detection framework (joint URL alias synthesis and cache
+          rule inference). The Caster paper abstract lists F5 among the affected domains,
+          which collectively received acknowledgments and bug bounty rewards; the per-vendor
+          date, bounty amount, recognition, and leaked data type are not recorded yet.
+
+  # ── iQIYI ───────────────────────────────────────────────────────────────
+  - name: "iQIYI"
+    rank: 13
+    domain: "iqiyi.com"
+    findings:
+      - title: "Web cache deception exposing authenticated user responses"
+        vuln_class: "Web Cache Deception (WCD)"
+        date: null
+        bounty_usd: null
+        recognition: null
+        cve: null
+        references: []
+        notes: >-
+          Found with Caster, our WCD detection framework (joint URL alias synthesis and cache
+          rule inference). The Caster paper abstract lists iQIYI among the affected domains,
+          which collectively received acknowledgments and bug bounty rewards; the per-vendor
+          date, bounty amount, recognition, and leaked data type are not recorded yet.
+
   # ── Composio ────────────────────────────────────────────────────────────
   - name: "Composio"
-    rank: 18
+    rank: 24
     domain: "composio.dev"
     findings:
       - title: "Critical Token Leakage Vulnerability"
@@ -274,7 +382,7 @@ vendors:
 
   # ── Alipay (Ant Group) ──────────────────────────────────────────────────
   - name: "Alipay"
-    rank: 6
+    rank: 11
     domain: "alipay.com"
     findings:
       - title: "Sandbox Escape in SecretFlow FL Framework, Leading to RCE"
@@ -289,7 +397,7 @@ vendors:
 
   # ── JD.com ──────────────────────────────────────────────────────────────
   - name: "JD"
-    rank: 7
+    rank: 12
     domain: "jd.com"
     findings:
       - title: "Security vulnerability disclosures (bug bounty program)"
@@ -303,7 +411,7 @@ vendors:
 
   # ── Hworld / Huazhu ─────────────────────────────────────────────────────
   - name: "Hworld"
-    rank: 14
+    rank: 20
     domain: "hworld.com"
     findings:
       - title: "Security vulnerability disclosures (bug bounty program)"
@@ -317,7 +425,7 @@ vendors:
 
   # ── Shuidi (Waterdrop) ──────────────────────────────────────────────────
   - name: "Shuidi"
-    rank: 15
+    rank: 21
     domain: "shuidihuzhu.com"
     findings:
       - title: "Security vulnerability disclosures (bug bounty program)"
@@ -331,7 +439,7 @@ vendors:
 
   # ── Youzan ──────────────────────────────────────────────────────────────
   - name: "Youzan"
-    rank: 16
+    rank: 22
     domain: "youzan.com"
     findings:
       - title: "Security vulnerability disclosures (bug bounty program)"
@@ -345,7 +453,7 @@ vendors:
 
   # ── Intsig ──────────────────────────────────────────────────────────────
   - name: "Intsig"
-    rank: 17
+    rank: 23
     domain: "intsig.com"
     findings:
       - title: "Security vulnerability disclosures (bug bounty program)"
