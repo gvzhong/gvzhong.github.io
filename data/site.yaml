@@ -27,7 +27,7 @@ news:
   - date: "Jun. 2026"
     text: "Our talk: <a href='/'>Get Set, Exploit! Unveiling Python Class Pollution In-the-Wild</a> accepted at DEF CON 34. See you in Las Vegas!"
   - date: "Jun. 2026"
-    text: "Our talk: <a href='/'>LaunchBreak: a Slip of Tea, a Click, a Full Multi-stage Desktop Takeover</a> accepted at DEF CON 34."
+    text: "Our talk: <a href='/'>LaunchBreak: a Sip of Tea, a Click, and a Full Multi-stage Desktop Takeover</a> accepted at DEF CON 34."
   - date: "Feb. 2026"
     text: "Our talk: <a href='https://blackhat.com/asia-26/briefings/schedule/#remote-server-local-root-welcome-to-mcp-51175'>Remote Server, Local Root. Welcome to MCP.</a> accepted at Black Hat Asia 2026."
   - date: "Dec. 2025"
@@ -53,7 +53,7 @@ publications:
 
   - title: "Comment and Control: Hijacking Agentic Workflows via Context-Grounded Evolution"
     authors: "Neil Fendley*, Zhengyu Liu*, Aonan Guan, <strong>Jiacheng Zhong</strong>, and Yinzhi Cao (*equal contribution)"
-    venue: "To appear in the proceedings of ACM Conference on Computer and Communications Security (CCS), 2026"
+    venue: "In the proceedings of the ACM Conference on Computer and Communications Security (CCS), 2026"
     featured_by:
       - label: "The Register"
         url: "https://www.theregister.com/2026/04/15/claude_gemini_copilot_agents_hijacked/"
@@ -83,7 +83,9 @@ publications:
         url: "https://labs.cloudsecurityalliance.org/research/csa-research-note-comment-control-github-prompt-injection-20/"
     links:
       - label: "paper"
-        url: "/"
+        url: "papers/ccs26-comment-and-control.pdf"
+      - label: "DOI"
+        url: "https://doi.org/10.1145/3830454.3846775"
       - label: "poster"
         url: "/"
       - label: "code"
@@ -93,14 +95,14 @@ publications:
 
   - title: "The First Large-Scale Systematic Study of Python Class Pollution Vulnerability"
     authors: "Zhengyu Liu, <strong>Jiacheng Zhong</strong>, Jianjia Yu, Muxi Lyu, Zifeng Kang, and Yinzhi Cao"
-    venue: "To appear in the proceedings of IEEE Symposium on Security and Privacy (S&P Oakland), 2026"
+    venue: "In the proceedings of the IEEE Symposium on Security and Privacy (S&P Oakland), 2026"
     links:
       - label: "paper"
-        url: "/"
+        url: "papers/sp26-python-class-pollution.pdf"
       - label: "poster"
         url: "/"
       - label: "code"
-        url: "/"
+        url: "https://github.com/jackfromeast/python-class-pollution"
       - label: "slides"
         url: "/"
 
@@ -109,28 +111,28 @@ talks:
     venue: "Speaker, DEFCON 34, Las Vegas, Aug 2026"
     links:
       - label: "slides"
-        url: "/"
+        url: "https://media.defcon.org/DEF%20CON%2034/DEF%20CON%2034%20presentations/DEF%20CON%2034%20-%20Gavin%20Zhong%2C%20Zhengyu%20Liu%2C%20Jianjia%20Yu%20-%20Get%20Set%2C%20Exploit%20Unveiling%20Python%20Class%20Pollution%20In-the-Wild%20-%20P.pdf"
       - label: "video"
-        url: "/"
-  - title: "LaunchBreak: a Slip of Tea, a Click, a Full Multi-stage Desktop Takeover"
+        url: "https://www.youtube.com/watch?v=uvLJ0JrLeyE"
+  - title: "LaunchBreak: a Sip of Tea, a Click, and a Full Multi-stage Desktop Takeover"
     venue: "Contributor, DEFCON 34, Las Vegas, Aug 2026"
     links:
       - label: "slides"
-        url: "/"
+        url: "https://media.defcon.org/DEF%20CON%2034/DEF%20CON%2034%20presentations/DEF%20CON%2034%20-%20Gavin%20Zhong%2C%20Zhengyu%20Liu%2C%20Jianjia%20Yu%20-%20LaunchBreak%20a%20Sip%20of%20Tea%2C%20a%20Click%2C%20and%20a%20Full%20Multi-stage%20Desktop%20Takeover%20-%20launchbreak%203%200.pdf"
       - label: "video"
-        url: "/"
+        url: "https://www.youtube.com/watch?v=ZJaV9FXnUdk"
   - title: "Remote Server, Local Root. Welcome to MCP."
     venue: "Speaker, Black Hat Asia 2026, April 2026"
     links:
       - label: "slides"
-        url: "/"
+        url: "https://drive.google.com/file/d/1DGfAiVKXDgGVYKuypbEEY5CsG-95IRL3/view?usp=sharing"
       - label: "video"
-        url: "/"
+        url: "https://www.youtube.com/watch?v=wYcG_6SS788"
   - title: "From Static to Smart: LLM-enhanced Static Analysis on Web Application Vulnerability Detection"
     venue: "Speaker, Ant Group SRC Annual Celebration, June 2025"
     links:
       - label: "slides"
-        url: "https://docs.google.com/presentation/d/18bWb35QsRO7gLqWQ6WLwO07HZL7iydqWFSuwaQK8ZkM/edit?usp=sharing"
+        url: "https://drive.google.com/file/d/19X9ZtNxPwmoVRKXz9A4ezN0vGpcemnrr/view?usp=sharing"
       - label: "video"
         url: "/"
   - title: "Not My Vibe: When AI Coding Agents Go Off the Rails"
@@ -139,7 +141,7 @@ talks:
       - label: "slides"
         url: "/"
       - label: "video"
-        url: "/"
+        url: "https://www.youtube.com/watch?v=ES2oO6Md9g4"
 
 honors:
   - title: "International Doctoral Recruitment Fellowship"
