@@ -16,10 +16,21 @@
 # Finding fields:
 #   - title       : report / advisory title
 #   - vuln_class  : short vulnerability category
+#   - label       : bold name shown in the "Some Things I Hacked" list on
+#                   cves.html, e.g. a product name (optional; defaults to
+#                   the vendor name)
+#   - impact      : one-line public impact summary shown in that list
+#                   (falls back to `title`). Findings with the same year and
+#                   identical impact text are merged into one line.
+#                   Findings with a `cve` are left out of that list (the
+#                   CVE table covers them), so they need no impact line.
 #   - date        : ISO 8601 (YYYY-MM-DD) disclosure / report date, or null
 #   - bounty_usd  : numeric reward in USD, or null if none / undisclosed
 #   - bounty_rmb  : numeric reward in RMB (optional; used when paid in RMB)
 #   - recognition : Hall of Fame, leaderboard, or other acknowledgement, or null
+#   - recognition_url : public page showing that recognition (optional,
+#                   http/https only); the recognition tag in the "Some Things
+#                   I Hacked" list links to it
 #   - cve         : associated CVE id, or null
 #   - references  : list of {label, url}
 #   - notes       : free-form notes
@@ -28,11 +39,12 @@
 vendors:
   # ── Glue ────────────────────────────────────────────────────────────────
   - name: "Glue"
-    rank: 27
+    rank: 28
     domain: "glue.ai"
     findings:
       - title: "MCP OAuth authorization flaw leading to Account Takeover (ATO)"
         vuln_class: "MCP OAuth → ATO"
+        impact: "MCP OAuth flaw leading to takeover of accounts and team chats."
         date: "2025-07-17"
         bounty_usd: null
         recognition: null
@@ -42,11 +54,12 @@ vendors:
 
   # ── Lutra AI ────────────────────────────────────────────────────────────
   - name: "Lutra AI"
-    rank: 26
+    rank: 27
     domain: "lutra.ai"
     findings:
       - title: "MCP OAuth authorization flaw leading to Data Exfiltration"
         vuln_class: "MCP OAuth → Data Exfiltration"
+        impact: "MCP OAuth flaw leading to theft of users' connected-app data."
         date: "2025-08-07"
         bounty_usd: null
         recognition: null
@@ -56,11 +69,12 @@ vendors:
 
   # ── Smithery ────────────────────────────────────────────────────────────
   - name: "Smithery"
-    rank: 25
+    rank: 26
     domain: "smithery.ai"
     findings:
       - title: "MCP OAuth authorization flaw leading to Account Takeover (ATO)"
         vuln_class: "MCP OAuth → ATO"
+        impact: "MCP OAuth flaw leading to account takeover on a top MCP registry."
         date: "2025-08-04"
         bounty_usd: 500
         recognition: null
@@ -70,25 +84,32 @@ vendors:
 
   # ── Square (Block, Inc.) ────────────────────────────────────────────────
   - name: "Square"
-    rank: 14
+    rank: 15
     domain: "squareup.com"
     findings:
       - title: "From OAuth to Oops: 1-click Persistent Data Exfiltration in Square MCP OAuth Infrastructure"
         vuln_class: "MCP OAuth → 1-click Persistent Data Exfiltration"
+        impact: "MCP OAuth 1-click persistent theft of merchants' business data."
         date: "2025-08-15"
         bounty_usd: 5000
         recognition: "Hall of Fame"
+        recognition_url: "https://bugcrowd.com/engagements/square/hall_of_fames"
         cve: null
-        references: []
-        notes: ""
+        references:
+          - label: "Square Bug Bounty Hall of Fame (Bugcrowd)"
+            url: "https://bugcrowd.com/engagements/square/hall_of_fames"
+        notes: >-
+          The Bugcrowd Hall of Fame lists Jiacheng as researcher "zhong" at rank 68 with 20
+          points (checked 2026-11-20; handle confirmed by Jiacheng, 2026-11-23).
 
   # ── Linear ──────────────────────────────────────────────────────────────
   - name: "Linear"
-    rank: 18
+    rank: 19
     domain: "linear.app"
     findings:
       - title: "Linear MCP OAuth Infrastructure is vulnerable to 1-click MCP token compromise"
         vuln_class: "MCP OAuth → 1-click token compromise"
+        impact: "MCP OAuth 1-click takeover of read/write workspace access."
         date: "2025-08-07"
         bounty_usd: 2000
         recognition: null
@@ -98,11 +119,12 @@ vendors:
 
   # ── BambooHR ────────────────────────────────────────────────────────────
   - name: "BambooHR"
-    rank: 19
+    rank: 20
     domain: "bamboohr.com"
     findings:
       - title: "BambooHR is Vulnerable to 1-click Tenant Compromise via OAuth Authorization"
         vuln_class: "OAuth → 1-click Tenant Compromise"
+        impact: "OAuth 1-click takeover of a company's entire HR tenant."
         date: "2025-02-03"
         bounty_usd: 750
         recognition: null
@@ -112,28 +134,34 @@ vendors:
 
   # ── Sentry.io ───────────────────────────────────────────────────────────
   - name: "Sentry.io"
-    rank: 17
+    rank: 18
     domain: "sentry.io"
     findings:
       - title: "MCP OAuth 1-click token leakage"
         vuln_class: "MCP OAuth → 1-click token leakage"
+        label: "Sentry"
+        impact: "MCP OAuth 1-click token leak exposing orgs' error data."
         date: "2025-08-19"
         bounty_usd: 2500
         recognition: "HackerOne Hall of Fame"
         cve: null
         references: []
-        notes: ""
+        notes: >-
+          The Hall of Fame entry is only visible inside Sentry's private HackerOne program,
+          so there is no public recognition_url (per Jiacheng, 2026-11-23).
 
   # ── Stack Overflow (Stack Exchange) ─────────────────────────────────────
   - name: "Stack Overflow"
-    rank: 15
+    rank: 16
     domain: "stackoverflow.com"
     findings:
       - title: "MCP OAuth 1-click token leakage"
         vuln_class: "MCP OAuth → 1-click token leakage"
+        impact: "MCP OAuth 1-click leak of any user's access token."
         date: "2025-11-18"
         bounty_usd: null
         recognition: "Hall of Fame"
+        recognition_url: "https://stackexchange.com/about/security"
         cve: null
         references:
           - label: "Stack Exchange Security Hall of Fame"
@@ -142,12 +170,12 @@ vendors:
 
   # ── Hugging Face ────────────────────────────────────────────────────────
   - name: "Hugging Face"
-    rank: 16
+    rank: 17
     domain: "huggingface.co"
     findings:
       - title: "MCP Inspector RCE"
         vuln_class: "RCE (XSS & RCE)"
-        date: null
+        date: "2025"
         bounty_usd: null
         recognition: null
         cve: "CVE-2025-58444"
@@ -158,7 +186,7 @@ vendors:
 
       - title: "Multiple Gradio vulnerabilities"
         vuln_class: "CSRF & Bypass (and related)"
-        date: null
+        date: "2025"
         bounty_usd: null
         recognition: null
         cve: "CVE-2025-5320"
@@ -169,7 +197,7 @@ vendors:
 
       - title: "Smolagents Sandbox Escape"
         vuln_class: "Sandbox Escape"
-        date: null
+        date: "2025"
         bounty_usd: 500
         recognition: null
         cve: "CVE-2025-5120"
@@ -185,7 +213,7 @@ vendors:
     findings:
       - title: "Azure CLI Remote Code Execution"
         vuln_class: "RCE"
-        date: null
+        date: "2025"
         bounty_usd: null
         recognition: "MSRC Q1 2025 Leaderboard; MSRC Q1 2026 Leaderboard"
         cve: "CVE-2025-24049"
@@ -194,6 +222,27 @@ vendors:
             url: "https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2025-24049"
         notes: ""
 
+      - title: "Comment and Control: prompt injection hijacking GitHub Copilot Agent to exfiltrate secrets"
+        vuln_class: "Agentic workflow hijacking (prompt injection → credential exfiltration)"
+        label: "Microsoft GitHub Copilot"
+        impact: "Any public repo using it could leak its secrets via a hidden issue."
+        date: "2026"
+        bounty_usd: 500
+        recognition: null
+        cve: null
+        references:
+          - label: "The Register: Agents hooked into GitHub can steal creds (2026-04-15)"
+            url: "https://www.theregister.com/2026/04/15/claude_gemini_copilot_agents_hijacked/"
+          - label: "Comment and Control (ACM CCS '26)"
+            url: "https://doi.org/10.1145/3830454.3846775"
+        notes: >-
+          Agentic workflow hijacking ("Comment and Control") with Aonan Guan and Zhengyu Liu.
+          A payload hidden in an HTML comment of a GitHub issue hijacks Copilot Agent once the
+          issue is assigned to it, bypassing GitHub's environment filtering, secret scanning,
+          and network firewall to exfiltrate secrets. GitHub first called it a known issue,
+          then paid a $500 bounty in March 2026 (The Register). Year is the public disclosure
+          year (April 2026); the report date is not recorded.
+
   # ── Google ──────────────────────────────────────────────────────────────
   - name: "Google"
     rank: 1
@@ -201,12 +250,19 @@ vendors:
     findings:
       - title: "Gemini CLI MCP auth RCE"
         vuln_class: "MCP OAuth → RCE"
-        date: null
+        label: "Google Gemini CLI"
+        impact: "MCP OAuth flaw leading to RCE on developers' machines."
+        date: "2025"
         bounty_usd: 500
         recognition: null
         cve: null
-        references: []
-        notes: ""
+        references:
+          - label: "Obsidian Security blog: From Well-Known to Well-Pwned"
+            url: "https://www.obsidiansecurity.com/blog/from-well-known-to-well-pwned-common-vulnerabilities-in-ai-agents/"
+        notes: >-
+          Year only: the public Obsidian Security write-up (Oct 2025) says the
+          Gemini CLI issue was reported and promptly fixed; Gemini CLI launched
+          in Jun 2025.
 
   # ── Meta ────────────────────────────────────────────────────────────────
   - name: "Meta"
@@ -215,6 +271,8 @@ vendors:
     findings:
       - title: "Llama Stack Sandbox Escape"
         vuln_class: "Sandbox Escape"
+        label: "Meta Llama Stack"
+        impact: "Sandbox escape leading to code execution on the host."
         date: null
         bounty_usd: null
         recognition: null
@@ -229,6 +287,7 @@ vendors:
     findings:
       - title: "Persistent DOM XSS on www.nvidia.com leads to Full Account Takeover and Cross-app Data Exfiltration"
         vuln_class: "Persistent DOM XSS → ATO & Cross-app Data Exfiltration"
+        impact: "Persistent DOM XSS leading to full account takeover across NVIDIA apps."
         date: "2026-07-29"
         bounty_usd: null
         recognition: null
@@ -236,15 +295,18 @@ vendors:
         references:
           - label: "Intigriti submission NVIDIA-538NJCA2 (private)"
             url: "https://app.intigriti.com/researcher/inbox/submissions/NVIDIA-538NJCA2"
-        notes: "NVIDIA Vulnerability Disclosure Program via Intigriti; severity High (CVSS 8.1); last updated 2026-08-27."
+        notes: >-
+          NVIDIA Vulnerability Disclosure Program via Intigriti; severity High (CVSS 8.1); last
+          updated 2026-08-27. Fixed (confirmed by Jiacheng, 2026-11-23).
 
   # ── WordPress ───────────────────────────────────────────────────────────
   - name: "WordPress"
-    rank: 6
+    rank: 7
     domain: "wordpress.org"
     findings:
       - title: "Cross-site scripting via a trusted oEmbed provider (Imgur embeds)"
-        vuln_class: "XSS (trusted oEmbed provider)"
+        vuln_class: "XSS → RCE (trusted oEmbed provider)"
+        impact: "Core XSS-to-RCE via trusted oEmbed, on the CMS behind 40%+ of the web."
         date: "2026-10-06"
         bounty_usd: null
         recognition: "Credited in the WordPress 7.1.3 security release notes"
@@ -255,8 +317,33 @@ vendors:
         notes: >-
           Reported jointly with Zhengyu Liu and Jingcheng Yang. Imgur was on WordPress's trusted
           oEmbed allowlist, which bypasses the sandboxing filter, so uploader-controlled response
-          text rendered unfiltered; the fix removes Imgur as a trusted provider. No CVE identifier
-          had been published for this item as of 2026-10-26.
+          text rendered unfiltered; the fix removes Imgur as a trusted provider. The XSS
+          escalates to RCE (per Jiacheng, 2026-11-20). No CVE identifier had been published for
+          this item as of 2026-10-26.
+
+  # ── Snowflake ───────────────────────────────────────────────────────────
+  - name: "Snowflake"
+    rank: 6
+    domain: "snowflake.com"
+    findings:
+      - title: "Agentic workflow hijacking in the streamlit/streamlit GitHub Actions workflow (Cursor CLI)"
+        vuln_class: "Agentic workflow hijacking (prompt injection → credential exfiltration)"
+        label: "Snowflake Streamlit"
+        impact: "Anyone could hijack the 44K-star repo's AI agent to steal CI secrets."
+        date: "2026"
+        bounty_usd: null
+        recognition: null
+        cve: null
+        references:
+          - label: "Comment and Control (ACM CCS '26), Table 2"
+            url: "https://doi.org/10.1145/3830454.3846775"
+        notes: >-
+          Found with JAW (Comment and Control paper). The issue-labeled workflow in
+          streamlit/streamlit runs Cursor CLI on attacker-controlled issue data; a crafted
+          payload makes the agent dump the process environment (ps auxeww) into a public
+          workflow artifact, exposing CURSOR_API_KEY. The paper lists the status as Bounty and
+          names Snowflake among the vendors that paid bounties; amount not recorded. Year
+          inferred from the paper's March 2026 dataset snapshot.
 
   # ── Cisco ───────────────────────────────────────────────────────────────
   - name: "Cisco"
@@ -265,6 +352,7 @@ vendors:
     findings:
       - title: "Web cache deception exposing authenticated user responses"
         vuln_class: "Web Cache Deception (WCD)"
+        impact: "Web cache deception leaking session tokens, API keys, and PII."
         date: null
         bounty_usd: null
         recognition: null
@@ -278,11 +366,12 @@ vendors:
 
   # ── eBay ────────────────────────────────────────────────────────────────
   - name: "eBay"
-    rank: 7
+    rank: 8
     domain: "ebay.com"
     findings:
       - title: "Web cache deception exposing authenticated user responses"
         vuln_class: "Web Cache Deception (WCD)"
+        impact: "Web cache deception leaking session tokens, API keys, and PII."
         date: null
         bounty_usd: null
         recognition: null
@@ -296,11 +385,12 @@ vendors:
 
   # ── FedEx ───────────────────────────────────────────────────────────────
   - name: "FedEx"
-    rank: 8
+    rank: 9
     domain: "fedex.com"
     findings:
       - title: "Web cache deception exposing authenticated user responses"
         vuln_class: "Web Cache Deception (WCD)"
+        impact: "Web cache deception leaking session tokens, API keys, and PII."
         date: null
         bounty_usd: null
         recognition: null
@@ -314,11 +404,12 @@ vendors:
 
   # ── ASUS ────────────────────────────────────────────────────────────────
   - name: "ASUS"
-    rank: 9
+    rank: 10
     domain: "asus.com"
     findings:
       - title: "Web cache deception exposing authenticated user responses"
         vuln_class: "Web Cache Deception (WCD)"
+        impact: "Web cache deception leaking session tokens, API keys, and PII."
         date: null
         bounty_usd: null
         recognition: null
@@ -332,29 +423,39 @@ vendors:
 
   # ── F5 ──────────────────────────────────────────────────────────────────
   - name: "F5"
-    rank: 10
+    rank: 11
     domain: "f5.com"
     findings:
-      - title: "Web cache deception exposing authenticated user responses"
-        vuln_class: "Web Cache Deception (WCD)"
-        date: null
+      - title: "Web cache deception on f5.com leading to 1-click account takeover"
+        vuln_class: "Web Cache Deception (WCD) → 1-click ATO"
+        impact: "1-click takeover of any f5.com account via web cache deception."
+        date: "2026"
         bounty_usd: null
-        recognition: null
+        recognition: "F5 SIRT Acknowledgement"
+        recognition_url: "https://my.f5.com/manage/s/article/K75282801"
         cve: null
-        references: []
+        references:
+          - label: "K75282801: F5 SIRT Security Researcher Acknowledgement"
+            url: "https://my.f5.com/manage/s/article/K75282801"
         notes: >-
           Found with Caster, our WCD detection framework (joint URL alias synthesis and cache
-          rule inference). The Caster paper abstract lists F5 among the affected domains,
-          which collectively received acknowledgments and bug bounty rewards; the per-vendor
-          date, bounty amount, recognition, and leaked data type are not recorded yet.
+          rule inference). F5 SIRT's public acknowledgement page (K75282801, "2026 disclosures")
+          credits "Zhengyu Liu, Jiacheng Zhong, Letao Zhao, Jianjia Yu, and Xinyue Huang" with
+          date November 2026 (checked 2026-11-20); the page does not name the issue type. The
+          impact is a 1-click account takeover on F5's main site, f5.com (per Jiacheng,
+          2026-11-23). F5 does not publish an account count; third-party estimates put f5.com
+          at roughly 800K-900K visits a month (Similarweb/Semrush, 2026), and F5 says 80%+ of
+          the Fortune Global 500 use its products. The exact report date and bounty amount are
+          not recorded yet.
 
   # ── iQIYI ───────────────────────────────────────────────────────────────
   - name: "iQIYI"
-    rank: 13
+    rank: 14
     domain: "iqiyi.com"
     findings:
       - title: "Web cache deception exposing authenticated user responses"
         vuln_class: "Web Cache Deception (WCD)"
+        impact: "Web cache deception leaking session tokens, API keys, and PII."
         date: null
         bounty_usd: null
         recognition: null
@@ -368,11 +469,12 @@ vendors:
 
   # ── Composio ────────────────────────────────────────────────────────────
   - name: "Composio"
-    rank: 24
+    rank: 25
     domain: "composio.dev"
     findings:
       - title: "Critical Token Leakage Vulnerability"
         vuln_class: "Token Leakage"
+        impact: "Critical token leak in the AI agent gateway to hundreds of apps."
         date: "2025-08-10"
         bounty_usd: 2000
         recognition: null
@@ -382,11 +484,13 @@ vendors:
 
   # ── Alipay (Ant Group) ──────────────────────────────────────────────────
   - name: "Alipay"
-    rank: 11
+    rank: 12
     domain: "alipay.com"
     findings:
       - title: "Sandbox Escape in SecretFlow FL Framework, Leading to RCE"
         vuln_class: "Sandbox Escape → RCE"
+        label: "Ant Group SecretFlow"
+        impact: "Sandbox escape leading to RCE in its federated learning framework."
         date: "2025-04-22"
         bounty_usd: null
         bounty_rmb: 9000
@@ -397,11 +501,13 @@ vendors:
 
   # ── JD.com ──────────────────────────────────────────────────────────────
   - name: "JD"
-    rank: 12
+    rank: 13
     domain: "jd.com"
     findings:
       - title: "Security vulnerability disclosures (bug bounty program)"
         vuln_class: null
+        label: "JD.com"
+        impact: "Multiple vulnerabilities reported via JSRC."
         date: "2020"
         bounty_usd: null
         recognition: null
@@ -411,11 +517,13 @@ vendors:
 
   # ── Hworld / Huazhu ─────────────────────────────────────────────────────
   - name: "Hworld"
-    rank: 20
+    rank: 21
     domain: "hworld.com"
     findings:
       - title: "Security vulnerability disclosures (bug bounty program)"
         vuln_class: null
+        label: "H World (Huazhu)"
+        impact: "Ranked #3 in the hotel group's bug bounty program."
         date: "2021"
         bounty_usd: null
         recognition: "#3"
@@ -425,11 +533,13 @@ vendors:
 
   # ── Shuidi (Waterdrop) ──────────────────────────────────────────────────
   - name: "Shuidi"
-    rank: 21
+    rank: 22
     domain: "shuidihuzhu.com"
     findings:
       - title: "Security vulnerability disclosures (bug bounty program)"
         vuln_class: null
+        label: "Shuidi (Waterdrop)"
+        impact: "Ranked #1 with the year's most critical vulnerability."
         date: "2021"
         bounty_usd: null
         recognition: "#1 — Most Critical Vulnerability of the Year"
@@ -439,11 +549,12 @@ vendors:
 
   # ── Youzan ──────────────────────────────────────────────────────────────
   - name: "Youzan"
-    rank: 22
+    rank: 23
     domain: "youzan.com"
     findings:
       - title: "Security vulnerability disclosures (bug bounty program)"
         vuln_class: null
+        impact: "Multiple vulnerabilities in the e-commerce SaaS platform."
         date: "2020"
         bounty_usd: null
         recognition: null
@@ -453,11 +564,12 @@ vendors:
 
   # ── Intsig ──────────────────────────────────────────────────────────────
   - name: "Intsig"
-    rank: 23
+    rank: 24
     domain: "intsig.com"
     findings:
       - title: "Security vulnerability disclosures (bug bounty program)"
         vuln_class: null
+        impact: "Ranked #13 in the CamScanner maker's bug bounty program."
         date: "2021"
         bounty_usd: null
         recognition: "#13"

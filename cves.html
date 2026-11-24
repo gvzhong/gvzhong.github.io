@@ -22,6 +22,7 @@
   <link rel="canonical" href="https://gvzhong.github.io/cves.html">
   <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
   <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+  <script src="/findings.js"></script>
 
 </head>
 
@@ -36,6 +37,24 @@
               <p class="profile-links">
                 <a href="index.html">← Back to Main Page</a>
               </p>
+            </td>
+          </tr>
+        </table>
+
+        <!-- Rendered by findings.js from data/vendor-collaborations.yaml. -->
+        <table class="section-table">
+          <tr>
+            <td class="section-cell">
+              <div class="section-heading">
+                <h2>Some Things I Hacked (and Helped Mitigate)</h2>
+              </div>
+              <p class="cve-description">
+                I hunt for bugs in production services, AI agents, and the frameworks behind
+                them, and report them directly to the vendors. Bugs I've reported:
+              </p>
+              <ul id="hacked-list" class="hacked-list">
+                <!-- Findings will be loaded here dynamically -->
+              </ul>
             </td>
           </tr>
         </table>

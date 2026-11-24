@@ -194,9 +194,9 @@ function renderServices(services) {
   services.forEach(svc => {
     const itemsHtml = svc.items.map(i => `<p style="margin:0;">${i}</p>`).join('');
     tbody.innerHTML += `
-      <tr>
-        <td>${svc.role}</td>
-        <td>${itemsHtml}</td>
+      <tr class="service-group">
+        <td class="service-role">${svc.role}</td>
+        <td class="service-items">${itemsHtml}</td>
       </tr>`;
   });
 }
